@@ -10,6 +10,8 @@ namespace RazorCurrencyConverter.Pages
 {
     public class IndexModel : PageModel
     {
+        [BindProperty]
+        public int Currency { get; set; }
         private readonly ILogger<IndexModel> _logger;
 
         public IndexModel(ILogger<IndexModel> logger)
@@ -19,6 +21,14 @@ namespace RazorCurrencyConverter.Pages
 
         public void OnGet()
         {
+
+        }
+        public void OnPost()
+        {
+
+            
+                ViewData["Conversion"] = "This is the Amount in American dollars =" + (Currency * 1.3667);
+
 
         }
     }
